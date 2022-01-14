@@ -45,4 +45,21 @@ public class BuildingTddTest {
             assertEquals(kericHisResidents[i], residents[i]);
         }
     }
+
+    @Test
+    public void ShallCreateABuildingWithIDAndResidentsAndAddNewResident_BuildingShouldHave1MoreResidentNow()
+    {
+        String[] residents = {"Keric", "NichtKeric", "Wizany", "Joe", "Willi"};
+        Building keric = new Building(3, residents);
+
+        keric.addResident("Bozo");
+
+        String[] kericHisResidents = keric.get_residents();
+
+        for(int i = 0; i < residents.length; i++)
+        {
+            assertEquals(kericHisResidents[i], residents[i]);
+        }
+        assertEquals(kericHisResidents[5], "Bozo");
+    }
 }

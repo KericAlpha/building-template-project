@@ -38,4 +38,20 @@ public class Building {
     public String[] get_residents() {
         return _residents;
     }
+
+    private void set_residents(String[] _residents) {
+        this._residents = _residents;
+    }
+
+    public void addResident(String resident)
+    {
+        String[] moreResidents = new String[get_residents().length + 1];
+        for(int i = 0; i < get_residents().length; i++)
+        {
+            moreResidents[i] = get_residents()[i];
+        }
+        moreResidents[get_residents().length] = resident;
+
+        set_residents(moreResidents);
+    }
 }
