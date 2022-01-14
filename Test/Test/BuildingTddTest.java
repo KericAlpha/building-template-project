@@ -78,13 +78,24 @@ public class BuildingTddTest {
     }
 
     @Test
-    public void ShallCreateABuildingWithIDAndResidents_AddBuildingShouldNotWork()
+    public void ShallCreateABuildingWithIDAndResidents_AddResidentShouldNotWork()
     {
         String[] residents = {"Keric", "NichtKeric", "Wizany", "Joe", "Willi"};
         Building keric = new Building(3, residents);
 
         keric.addResident("Keric");
 
-        assertEquals(keric.get_residents().length, 5);
+        assertEquals(keric.numberOfResidents(), 5);
+    }
+
+    @Test
+    public void ShallCreateABuildingWithIDAndResidents_RemoveResidentShouldNotWork()
+    {
+        String[] residents = {"Keric", "NichtKeric", "Wizany", "Joe", "Willi"};
+        Building keric = new Building(3, residents);
+
+        keric.removeResident("Gustav");
+
+        assertEquals(keric.numberOfResidents(), 5);
     }
 }

@@ -43,6 +43,11 @@ public class Building {
         this._residents = _residents;
     }
 
+    public int numberOfResidents()
+    {
+        return _residents.length;
+    }
+
     public void addResident(String resident)
     {
         for(int i = 0; i < get_residents().length; i++)
@@ -65,27 +70,39 @@ public class Building {
 
     public void removeResident(String resident)
     {
-        String[] lessResidents = new String[get_residents().length - 1];
-
-        String[] residentsNow = get_residents();
-
-        int countIfResGotDeleted = 0;
-
-        for(int i = 0; i < residentsNow.length; i++)
+        boolean isInBuilding = false;
+        for(int i = 0; i < get_residents().length; i++)
         {
-            if(residentsNow[i].equals(resident))
+            if(get_residents()[i].equals(resident))
             {
-                residentsNow[i] = "";
-                countIfResGotDeleted--;
+                isInBuilding = true;
             }
-
-            if(!residentsNow[i].equals(""))
-            {
-                lessResidents[countIfResGotDeleted] = residentsNow[i];
-            }
-            countIfResGotDeleted++;
         }
 
-        set_residents(lessResidents);
+        if(isInBuilding)
+        {
+            String[] lessResidents = new String[get_residents().length - 1];
+
+            String[] residentsNow = get_residents();
+
+            int countIfResGotDeleted = 0;
+
+            for(int i = 0; i < residentsNow.length; i++)
+            {
+                if(residentsNow[i].equals(resident))
+                {
+                    residentsNow[i] = "";
+                    countIfResGotDeleted--;
+                }
+
+                if(!residentsNow[i].equals(""))
+                {
+                    lessResidents[countIfResGotDeleted] = residentsNow[i];
+                }
+                countIfResGotDeleted++;
+            }
+
+            set_residents(lessResidents);
+        }
     }
 }
