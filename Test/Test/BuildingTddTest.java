@@ -62,4 +62,20 @@ public class BuildingTddTest {
         }
         assertEquals(kericHisResidents[5], "Bozo");
     }
+
+
+    @Test
+    public void ShallCreateABuildingWithIDAndResidentsAndRemoveAResident_BuildingShouldHave1LessResidentNow()
+    {
+        String[] residents = {"Keric", "NichtKeric", "Wizany", "Joe", "Willi"};
+        Building keric = new Building(3, residents);
+
+        keric.removeResident("Joe");
+
+        String[] kericHisResidents = keric.get_residents();
+
+        assertEquals(kericHisResidents.length, 4);
+    }
+
+
 }

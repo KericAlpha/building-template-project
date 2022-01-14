@@ -54,4 +54,30 @@ public class Building {
 
         set_residents(moreResidents);
     }
+
+    public void removeResident(String resident)
+    {
+        String[] lessResidents = new String[get_residents().length - 1];
+
+        String[] residentsNow = get_residents();
+
+        int countIfResGotDeleted = 0;
+
+        for(int i = 0; i < residentsNow.length; i++)
+        {
+            if(residentsNow[i].equals(resident))
+            {
+                residentsNow[i] = "";
+                countIfResGotDeleted--;
+            }
+
+            if(!residentsNow[i].equals(""))
+            {
+                lessResidents[countIfResGotDeleted] = residentsNow[i];
+            }
+            countIfResGotDeleted++;
+        }
+
+        set_residents(lessResidents);
+    }
 }
