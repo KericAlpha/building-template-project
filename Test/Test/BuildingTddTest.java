@@ -22,4 +22,13 @@ public class BuildingTddTest {
 
         assertNotNull(willi);
     }
+
+    @Test
+    public void ShallCreateABuildingWithIDAndResident_BuildingShouldHaveIDAndResident()
+    {
+        Building joe = new Building(26, "joe");
+
+        assertEquals(joe.get_id(), 26);
+        assertEquals(joe.get_resident(), "joe");
+    }
 }

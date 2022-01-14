@@ -19,4 +19,12 @@ public class Building {
         _id = id;
         _resident = resident;
     }
+
+    public int get_id() {
+        return _id;
+    }
+
+    public String get_resident() {
+        return _resident;
+    }
 }
