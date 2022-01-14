@@ -45,6 +45,14 @@ public class Building {
 
     public void addResident(String resident)
     {
+        for(int i = 0; i < get_residents().length; i++)
+        {
+            if(get_residents()[i].equals(resident))
+            {
+                return;
+            }
+        }
+
         String[] moreResidents = new String[get_residents().length + 1];
         for(int i = 0; i < get_residents().length; i++)
         {

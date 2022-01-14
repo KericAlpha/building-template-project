@@ -77,5 +77,14 @@ public class BuildingTddTest {
         assertEquals(kericHisResidents.length, 4);
     }
 
+    @Test
+    public void ShallCreateABuildingWithIDAndResidents_AddBuildingShouldNotWork()
+    {
+        String[] residents = {"Keric", "NichtKeric", "Wizany", "Joe", "Willi"};
+        Building keric = new Building(3, residents);
 
+        keric.addResident("Keric");
+
+        assertEquals(keric.get_residents().length, 5);
+    }
 }
