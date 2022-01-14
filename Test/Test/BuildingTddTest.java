@@ -31,4 +31,18 @@ public class BuildingTddTest {
         assertEquals(joe.get_id(), 26);
         assertEquals(joe.get_resident(), "joe");
     }
+
+    @Test
+    public void ShallCreateABuildingWithIDAndResidents_BuildingShouldHaveAnArrayOfStrings()
+    {
+        String[] residents = {"Keric", "NichtKeric", "Wizany", "Joe", "Willi"};
+        Building keric = new Building(3, residents);
+
+        String[] kericHisResidents = keric.get_residents();
+
+        for(int i = 0; i < residents.length; i++)
+        {
+            assertEquals(kericHisResidents[i], residents[i]);
+        }
+    }
 }
